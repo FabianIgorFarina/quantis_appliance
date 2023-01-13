@@ -47,7 +47,7 @@ Der Listener für die Abfragen läuft auf Port 8080.
 Abgefragt werden können die Datentypen "int", "short", "double" und "float". Die Parameter der Query sind "min" (untere Schranke), "max" (obere Schranke) und "quantity" (Anzahl der gewünschten Zufallszahlen).
 Beispiele zum Aufruf mit curl:
 ```
-curl -k "https://localhost:8080/api/2.0/int" <!--- Abruf ohne vorherige Anpassung des Hosnames (unsicher) --->
-curl --cacert ca.crt "https://server1:8080/api/2.0/int" <!--- Die Abfrage muss aus dem Ordner erfolgen, in dem sich ca.crt befindet, ansonsten muss der Pfad dorthin angegeben werden. --->
+curl -k "https://localhost:8080/api/2.0/int"
+curl --cacert ca.crt "https://server1:8080/api/2.0/int"
 curl --cacert ca.crt "https://server1:8080/api/2.0/double?min=-10&max=12&quantity=5"
 ```
