@@ -10,7 +10,6 @@ Installation von OpenSSL Entwicklerbibliotheken auf Ubuntu oder Debian:
 ```
 sudo apt update
 sudo apt install libssl-dev
-
 ```
 
 Die anschließende Installation von Rust ist auf deren Website beschrieben:
