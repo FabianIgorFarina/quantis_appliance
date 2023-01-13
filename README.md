@@ -31,7 +31,7 @@ sudo hostnamectl set-hostname server1
 
 Damit abfragen richtig geleitet werden muss der Hostname noch mit der lokalen IP-Adresse in Verbindung gebracht werden. Dazu muss der Datei /etc/hosts folgende Zeile hinzugefügt werden:
 ```
-127.0.0.1\tserver1
+127.0.0.1 server1
 ```
 
 ## Programm starten
