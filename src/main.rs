@@ -14,6 +14,8 @@ async fn main() {
         .or(random_short_service(Arc::clone(&rng)))
         .or(random_float_service(Arc::clone(&rng)));
 
+    let cors = warp::cors().allow_any_origin();
+
     warp::serve(random_service)
         .tls()
         .cert_path("server1.crt")
@@ -69,6 +71,7 @@ fn random_int_service(
                 StatusCode::OK,
             ))
         }))
+        .with(warp::cors().allow_any_origin())
 }
 
 fn random_short_service(
@@ -107,6 +110,7 @@ fn random_short_service(
                 StatusCode::OK,
             ))
         }))
+        .with(warp::cors().allow_any_origin())
 }
 
 fn random_double_service(
@@ -117,7 +121,6 @@ fn random_double_service(
         .and(warp::path("2.0"))
         .and(warp::path("double"))
         .and(warp::query().map(move |map: HashMap<String, f64>| {
-            println!("Got call for random double");
             // default values
             let mut values: HashMap<String, f64> = HashMap::new();
             values.insert("min".to_string(), 0.0);
@@ -146,6 +149,7 @@ fn random_double_service(
                 StatusCode::OK,
             ))
         }))
+        .with(warp::cors().allow_any_origin())
 }
 
 fn random_float_service(
@@ -184,4 +188,5 @@ fn random_float_service(
                 StatusCode::OK,
             ))
         }))
+        .with(warp::cors().allow_any_origin())
 }
